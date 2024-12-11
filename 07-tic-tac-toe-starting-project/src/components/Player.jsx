@@ -6,7 +6,7 @@ export default function Player({ name, symbol }) {
     let playerInfo = <span className="player-name">{name}</span>;
 
     if(isEditing){
-        playerInfo = <input type="text" required placeholder="Enter name"></input>;
+        playerInfo = <input type="text" required value={name}></input>;
     }
 
   return (
