@@ -1,7 +1,9 @@
-export default function Tabs({ children, buttons }) {
+import React from "react";
+
+export default function Tabs({ children, buttons, ButtonsContainer }) {
   return (
     <>
-      <menu>{buttons}</menu>
+      <ButtonsContainer>{buttons}</ButtonsContainer>
       {children}
     </>
   );
