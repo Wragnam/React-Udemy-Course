@@ -5,10 +5,15 @@ import TabButton from "./components/TabButton/TabButton.jsx";
 import { CORE_CONCEPTS } from "./data.js";
 
 function App() {
+  let tabContent = "Please click a button";
+
   function handleSelect(selectedButton) {
     //selectedButton is a string with the name of the button clicked
-    console.log(selectedButton);
+    tabContent = selectedButton;
+    console.log(tabContent);
   }
+
+  console.log("Rendering App component...");
 
   return (
     <div>
@@ -31,7 +36,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          Dynamic Content
+          {tabContent}
         </section>
         <h2>Time to get started!</h2>
       </main>
