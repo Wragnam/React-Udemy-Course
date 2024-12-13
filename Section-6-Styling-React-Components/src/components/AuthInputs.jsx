@@ -18,6 +18,21 @@ const Label = styled.label`
   color: ${({$invalid})=> $invalid ? "#f87171" : "#6b7280"};
 `;
 
+  const Button = styled.button`
+    padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: #1f2937;
+  background-color: #f0b322;
+  border-radius: 6px;
+  border: none;
+
+  &:hover{
+    background-color: #f0920e;
+  }
+  `
+
 const Input = styled.input`
   width: 100%;
   padding: 0.75rem 1rem;
@@ -80,9 +95,9 @@ export default function AuthInputs() {
         <button type="button" className="text-button">
           Create a new account
         </button>
-        <button className="button" onClick={handleLogin}>
+        <Button onClick={handleLogin}>
           Sign In
-        </button>
+        </Button>
       </div>
     </div>
   );
