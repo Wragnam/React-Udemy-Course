@@ -4,27 +4,28 @@ import Result from "./components/Result";
 import UserInputs from "./components/UserInputs";
 
 const INITIAL_VALUES = {
-  initialInvestment: 0,
-  annualInvestment: 0,
-  expectedReturn: 0,
-  duration: 0,
+  initialInvestment: 10000,
+  annualInvestment: 1200,
+  expectedReturn: 6,
+  duration: 10,
 };
 
 function App() {
-  const [values, setValues] = useState({ ...INITIAL_VALUES });
+  const [userInput, setUserInput] = useState({ ...INITIAL_VALUES });
 
-  function onValueChange(valueIndex, value) {
-    setValues((prevValues) => {
-      const updatedValues = { ...prevValues, [valueIndex]: value };
-      return updatedValues;
+  function onValueChange(valueIndex, newValue) {
+    setUserInput((prevValues) => {
+      return { ...prevValues, [valueIndex]: +newValue };
     });
   }
+
+  const inputIsValid = userInput.duration >= 0;
 
   return (
     <>
       <Header />
-      <UserInputs values={values} onChange={onValueChange} />
-      <Result values={values} />
+      <UserInputs userInput={userInput} onChange={onValueChange} />
+      {!inputIsValid ? <p className="center">Cannot have negative duration</p> : <Result userInput={userInput} />}
     </>
   );
 }

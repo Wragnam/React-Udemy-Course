@@ -8,21 +8,21 @@ const TABLE_HEADER = [
   "Invested Capital",
 ];
 
-export default function Result({ values }) {
-  let annualData = calculateInvestmentResults(values);
+export default function Result({ userInput }) {
+  let annualData = calculateInvestmentResults(userInput);
   if (annualData.length > 0) {
-    let runner = values.initialInvestment + values.annualInvestment;
+    let runner = userInput.initialInvestment + userInput.annualInvestment;
     let interestRunner = 0;
     annualData.forEach((line) => {
-      line["totalInterest"] = interestRunner + line["interest"];
-      line["investedCapital"] = runner;
-      runner += values.annualInvestment;
-      interestRunner += line["interest"];
+      line.totalInterest = interestRunner + line.interest;
+      line.investedCapital = runner;
+      runner += userInput.annualInvestment;
+      interestRunner += line.interest;
     });
   }
 
   return (
-    <table id="result">
+    <table id="result"> 
       <thead>
         <tr>
           {TABLE_HEADER.map((value) => {
@@ -38,11 +38,11 @@ export default function Result({ values }) {
         {annualData.map((line) => {
           return (
             <tr key={line.year}>
-              <td>{line["year"]}</td>
-              <td>{formatter.format(line["valueEndOfYear"])}</td>
-              <td>{formatter.format(line["interest"])}</td>
-              <td>{formatter.format(line["totalInterest"])}</td>
-              <td>{formatter.format(line["investedCapital"])}</td>
+              <td>{line.year}</td>
+              <td>{formatter.format(line.valueEndOfYear)}</td>
+              <td>{formatter.format(line.interest)}</td>
+              <td>{formatter.format(line.totalInterest)}</td>
+              <td>{formatter.format(line.investedCapital)}</td>
             </tr>
           );
         })}

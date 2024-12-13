@@ -1,12 +1,22 @@
-export default function UserInput({ type, children, values, onValueChange, changeType }){
-
-  function handleOnChange(event){
-    onValueChange(changeType, parseFloat(event.target.value));
+export default function UserInput({
+  type,
+  children,
+  values,
+  onValueChange,
+  changeType,
+}) {
+  function handleChange(event) {
+    onValueChange(changeType, event.target.value);
   }
-    return(
-        <div>
-        <label>{children}</label>
-        <input type={type} value={values[changeType]} onChange={handleOnChange}></input>
-      </div>
-    )
+  return (
+    <p>
+      <label>{children}</label>
+      <input
+        type={type}
+        required
+        value={values[changeType]}
+        onChange={handleChange}
+      ></input>
+    </p>
+  );
 }
