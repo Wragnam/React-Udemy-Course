@@ -1,10 +1,10 @@
 export default function Projects({ handleAddViewProject, data }) {
   return (
-    <section className="bg-gray-950 my-5 rounded-md pt-2 w-60">
-      <section className="">
-        <h1 className="text-white text-center uppercase my-4 font-bold">
-          Your Projects
-        </h1>
+    <aside className="bg-gray-950 my-5 rounded-md pt-2 w-60">
+      <h1 className="text-white text-center uppercase my-4 font-bold">
+        Your Projects
+      </h1>
+      <div>
         <button
           onClick={() => {
             handleAddViewProject(1);
@@ -13,7 +13,7 @@ export default function Projects({ handleAddViewProject, data }) {
         >
           + Add Project
         </button>
-      </section>
+      </div>
       <ol className="space-y-2 pt-3 pl-3">
         {data.map((dataItem) => {
           return (
@@ -28,6 +28,6 @@ export default function Projects({ handleAddViewProject, data }) {
           );
         })}
       </ol>
-    </section>
+    </aside>
   );
 }

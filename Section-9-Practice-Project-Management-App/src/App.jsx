@@ -79,7 +79,7 @@ function App() {
   }
 
   return (
-    <>
+    <main>
       <div className="h-screen my-8 flex space-x-10">
         <Projects
           handleAddViewProject={handleOpenAddViewProject}
@@ -104,7 +104,7 @@ function App() {
           />
         )}
       </div>
-    </>
+    </main>
   );
 }
 
