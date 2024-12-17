@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Project from "./components/Project";
-import Projects from "./components/Projects";
 import ProjectInfo from "./components/ProjectInfo";
 import NoProjectSelected from "./components/NoProjectSelected";
 import { v4 as uuid } from 'uuid';
+import ProjectsSidebar from "./components/ProjectsSidebar";
 
 const initialProjects = [
   {
@@ -73,7 +73,7 @@ function App() {
 
   return (
     <main className="h-screen my-8 flex gap-8">
-        <Projects
+        <ProjectsSidebar
           handleAddViewProject={handleOpenAddViewProject}
           data={projects}
         />
