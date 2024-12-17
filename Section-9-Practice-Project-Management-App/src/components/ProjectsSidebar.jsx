@@ -3,7 +3,7 @@ import Button from "./Button";
 export default function ProjectsSidebar({ handleAddViewProject, data, selectedProjectId }) {
   return (
     <aside className="bg-stone-900 my-5 rounded-r-xl pt-2 w-1/3 px-8 py-16 text-stone-50 md:w-72">
-      <h1 className="uppercase mb-8 font-bold md:text-xl text-stone-200">
+      <h1 className="uppercase mb-8 font-bold md:text-xl text-stone-200 pt-10">
         Your Projects
       </h1>
       <div>
@@ -15,7 +15,8 @@ export default function ProjectsSidebar({ handleAddViewProject, data, selectedPr
           + Add Project
         </Button>
       </div>
-      <ul className="mt-8">
+      {(data && data.length > 0 ) ? <ul className="mt-8">
+
         {data.map((dataItem) => {
           let cssClasses = "w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800 truncate hover:overflow-visible";
           if(dataItem.id === selectedProjectId){
@@ -35,7 +36,7 @@ export default function ProjectsSidebar({ handleAddViewProject, data, selectedPr
             </li>
           );
         })}
-      </ul>
+      </ul>: ""}
     </aside>
   );
 }

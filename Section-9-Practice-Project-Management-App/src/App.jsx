@@ -5,29 +5,11 @@ import NoProjectSelected from "./components/NoProjectSelected";
 import { v4 as uuid } from 'uuid';
 import ProjectsSidebar from "./components/ProjectsSidebar";
 
-const initialProjects = [
-  {
-    id: 1,
-    title: "First Project",
-    description:
-      "This is my first project, and I am testing the length of the text block this is inserted into",
-    date: "2024-03-11",
-    tasks: [
-      {
-        id: 1,
-        task: "Learn advanced concepts",
-      },
-      {
-        id: 2,
-        task: "Learn the basics",
-      },
-    ],
-  },
-];
+
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState(0);
-  const [projects, setProjects] = useState(initialProjects);
+  const [projects, setProjects] = useState([]);
   const [currentProject, setCurrentProject] = useState(null);
 
   function handleOpenAddViewProject(value, data = null) {
