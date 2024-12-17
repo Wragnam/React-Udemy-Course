@@ -1,8 +1,8 @@
 import { useState } from "react";
-import NoProject from "./components/NoProject";
 import Project from "./components/Project";
 import Projects from "./components/Projects";
 import ProjectInfo from "./components/ProjectInfo";
+import NoProjectSelected from "./components/NoProjectSelected";
 
 const initialProjects = [
   {
@@ -85,7 +85,7 @@ function App() {
           data={projects}
         />
         {currentScreen === 0 && (
-          <NoProject handleAddProject={handleOpenAddViewProject} />
+          <NoProjectSelected handleAddProject={handleOpenAddViewProject} />
         )}
         {currentScreen === 1 && (
           <Project
