@@ -1,12 +1,14 @@
+const classes= "bg-stone-200 w-full p-1 border border-b-2 border-stone-300 text-stone-600 focus:outline-none focus:border-stone-600"
+
 export default function Input({ label, type, ref }) {
   return (
-    <div className="flex flex-col">
-      <label className="text-stone-600 uppercase font-bold text-sm">{label}</label>
+    <p className="flex flex-col gap-1 my-3">
+      <label className="text-stone-500 uppercase font-bold text-sm">{label}</label>
       {type === "textarea" ? (
-        <textarea className="bg-stone-200" ref={ref}></textarea>
+        <textarea className={classes} ref={ref}></textarea>
       ) : (
-        <input ref={ref} className="bg-stone-200" type={type} required></input>
+        <input ref={ref} className={classes} type={type} required></input>
       )}
-    </div>
+    </p>
   );
 }
