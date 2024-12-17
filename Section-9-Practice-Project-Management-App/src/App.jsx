@@ -79,8 +79,7 @@ function App() {
   }
 
   return (
-    <main>
-      <div className="h-screen my-8 flex space-x-10">
+    <main className="h-screen my-8">
         <Projects
           handleAddViewProject={handleOpenAddViewProject}
           data={projects}
@@ -103,7 +102,6 @@ function App() {
             handleDeleteTask={deleteTask}
           />
         )}
-      </div>
     </main>
   );
 }
