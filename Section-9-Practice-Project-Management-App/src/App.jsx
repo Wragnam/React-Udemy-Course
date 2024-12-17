@@ -47,7 +47,7 @@ function App() {
 
   function deleteProject(id) {
     setProjects((oldProjectList) =>
-      oldProjectList.filter((project) => project.id != id)
+      oldProjectList.filter((project) => project.id !== id)
     );
   }
 
