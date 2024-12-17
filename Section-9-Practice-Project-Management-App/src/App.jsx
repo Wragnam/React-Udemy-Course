@@ -34,6 +34,8 @@ function App() {
     setCurrentScreen(value);
     if (data) {
       setCurrentProject(data);
+    }else{
+      setCurrentProject(null);
     }
   }
 
@@ -76,6 +78,7 @@ function App() {
         <ProjectsSidebar
           handleAddViewProject={handleOpenAddViewProject}
           data={projects}
+          selectedProjectId={currentProject ? currentProject.id : null}
         />
         {currentScreen === 0 && (
           <NoProjectSelected handleAddProject={handleOpenAddViewProject} />

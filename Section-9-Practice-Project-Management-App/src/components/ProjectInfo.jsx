@@ -10,31 +10,33 @@ export default function ProjectInfo({
   handleDeleteTask,
 }) {
   const taskText = useRef();
-    if (taskText.current && taskText.current.value){
-        taskText.current.value ="";
-    }
+  if (taskText.current && taskText.current.value) {
+    taskText.current.value = "";
+  }
 
+  const formattedDate = new Date(projectInfo.date).toLocaleDateString('en-US',{
+    year:'numeric',
+    month: 'short',
+    day:'numeric'
+  });
   return (
-    <section className="py-14 space-y-5">
-      <section className="flex-row flow-root">
-        <div className="space-y-4 float-left">
-          <div>
-            <h1 className="font-bold text-3xl">{projectInfo.title}</h1>
-            <h2 className="text-gray-400">{projectInfo.date}</h2>
-          </div>
-          <p className="">{projectInfo.description}</p>
+    <div className="w-[35rem] mt-16">
+      <header className="pb-4 mb-4 border-b-2 border-stone-300">
+        <div className="flex justify-between">
+          <h1 className="font-bold text-3xl text-stone-600 mb-2">{projectInfo.title}</h1>
+          <button
+            className="text-stone-600 hover:text-stone-950"
+            onClick={() => {
+              handleCloseProject(0);
+              handleDeleteProject(projectInfo.id);
+            }}
+          >
+            Delete
+          </button>
         </div>
-        <button
-          className="float-right"
-          onClick={() => {
-            handleCloseProject(0);
-            handleDeleteProject(projectInfo.id);
-          }}
-        >
-          Delete
-        </button>
-      </section>
-      <hr style={{ borderTopWidth: "3px" }} />
+        <h2 className="text-stone-400 mb-4">{formattedDate}</h2>
+        <p className="text-stone-600 whitespace-pre-wrap">{projectInfo.description}</p>
+      </header>
       <section className="space-y-4">
         <h2 className={headerClass}>Tasks</h2>
         <div className="space-x-3">
@@ -72,6 +74,6 @@ export default function ProjectInfo({
           <p>This project does not have any tasks yet</p>
         )}
       </section>
-    </section>
+    </div>
   );
 }
