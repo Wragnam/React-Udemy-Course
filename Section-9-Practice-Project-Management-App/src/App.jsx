@@ -3,6 +3,7 @@ import Project from "./components/Project";
 import Projects from "./components/Projects";
 import ProjectInfo from "./components/ProjectInfo";
 import NoProjectSelected from "./components/NoProjectSelected";
+import { v4 as uuid } from 'uuid';
 
 const initialProjects = [
   {
@@ -36,13 +37,9 @@ function App() {
     }
   }
 
-  function addProject(newProject) {
-    let idx = 0;
-    if (projects && projects.length > 0) {
-      idx = projects[projects.length - 1].id + 1;
-    }
+  function addProject(projectData) {
     setProjects((oldProjectList) => {
-      return [...oldProjectList, { id: idx, ...newProject }];
+      return [...oldProjectList, { id: uuid(), ...projectData }];
     });
   }
 
@@ -53,16 +50,12 @@ function App() {
   }
 
   function addTask(projectId, text) {
-    let idx = 0;
     setProjects((oldProjectList) => {
       let project = oldProjectList.find((project) => project.id === projectId);
-      if (project.tasks && project.tasks.length > 0) {
-        idx = project.tasks[project.tasks.length - 1].id + 1;
-      }
       if (!project.tasks) {
-        project.tasks = [{ id: idx, task: text }];
+        project.tasks = [{ id: uuid(), task: text }];
       } else {
-        project.tasks.push({ id: idx, task: text });
+        project.tasks.push({ id: uuid(), task: text });
       }
 
       return [...oldProjectList];

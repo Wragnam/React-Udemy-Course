@@ -5,7 +5,7 @@ export default function Input({ label, type, ref }) {
     <p className="flex flex-col gap-1 my-3">
       <label className="text-stone-500 uppercase font-bold text-sm">{label}</label>
       {type === "textarea" ? (
-        <textarea className={classes} ref={ref}></textarea>
+        <textarea ref={ref} className={classes}></textarea>
       ) : (
         <input ref={ref} className={classes} type={type} required></input>
       )}
