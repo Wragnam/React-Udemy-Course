@@ -9,13 +9,13 @@ export default function Tasks({projectInfo, handleDeleteTask, handleAddTask}){
         <h2 className={headerClass}>Tasks</h2>
         <NewTask projectInfo={projectInfo} handleAddTask={handleAddTask}/>
         {projectInfo.tasks && projectInfo.tasks.length > 0 ? (
-          <ul className="bg-stone-200 rounded-md space-y-2">
+          <ul className="bg-stone-100 rounded-md p-4 mt-8">
             {projectInfo.tasks.map((task) => {
               return (
-                <li key={task.id} className="flow-root">
-                  <p className="float-left">{task.task}</p>
+                <li key={task.id} className="flex justify-between my-4">
+                  <span>{task.task}</span>
                   <button
-                    className="float-right"
+                  className="text-stone-700 hover:text-red-500"
                     onClick={() => handleDeleteTask(projectInfo.id, task.id)}
                   >
                     Clear
