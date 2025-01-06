@@ -8,7 +8,7 @@ export default function ProgressBar({ timeout, onTimeout }) {
   }, [timeout, onTimeout]);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       setRemainingTime((prevTime) => prevTime - 100);
     }, 100);
   }, []);
