@@ -5,13 +5,13 @@ export default function AvailablePlaces({ onSelectPlace }) {
   const [availablePlaces, setAvailablePlaces] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/places")
-      .then((response) => {
-        return response.json();
-      })
-      .then((resData) => {
-        setAvailablePlaces(resData.places);
-      });
+    async function fetchPlaces() {
+      const resp = await fetch("http://localhost:3000/places");
+      const data = await resp.json();
+      setAvailablePlaces(data.places);
+    }
+
+    fetchPlaces();
   }, []);
 
   return (
