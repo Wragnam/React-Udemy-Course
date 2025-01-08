@@ -1,0 +1,19 @@
+{
+    "css.lint.duplicateProperties": "warning",
+    "css.lint.idSelector": "warning",
+    "css.lint.important": "warning",
+    "css.lint.importStatement": "warning",
+    "css.lint.universalSelector": "warning",
+    "css.lint.unknownVendorSpecificProperties": "warning",
+    "css.lint.zeroUnits": "warning",
+    "less.lint.boxModel": "warning",
+    "less.lint.compatibleVendorPrefixes": "warning",
+    "less.lint.duplicateProperties": "warning",
+    "less.lint.float": "warning",
+    "less.lint.idSelector": "warning",
+    "less.lint.ieHack": "warning",
+    "less.lint.important": "warning",
+    "less.lint.importStatement": "warning",
+    "less.lint.universalSelector": "warning",
+    "less.lint.unknownVendorSpecificProperties": "warning"
+}
