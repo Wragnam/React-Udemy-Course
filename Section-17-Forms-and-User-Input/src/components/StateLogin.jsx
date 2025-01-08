@@ -12,6 +12,11 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(enteredValues);
+
+    setEnteredValues({
+      email: "",
+      password: "",
+    });
   }
 
   function handleInputChange(identifier, value) {
@@ -43,7 +48,9 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            onChange={(event) => handleInputChange("password", event.target.value)}
+            onChange={(event) =>
+              handleInputChange("password", event.target.value)
+            }
             value={enteredValues.password}
           />
         </div>
