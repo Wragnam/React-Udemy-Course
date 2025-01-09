@@ -1,23 +1,87 @@
+import { useActionState } from "react";
+
+function newOpinionAction(prevState, formData) {
+  const userName = formData.get("userName"); //Correct
+  const title = formData.get("title"); //Correct
+  const opinionText = formData.get("body"); //Correct
+
+  let errors = []; //Correct
+  if (opinionText.length < 15) {
+    errors.push("Opinion must be at least 15 characters long");
+  }
+
+  if (title.trim().length < 5) {
+    errors.push("Title must be at least 5 characters");
+  }
+
+  if (errors.length > 0) {
+    return {
+      errors,
+      enteredValues: {
+        userName,
+        title,
+        opinionText,
+      },
+    };
+  }
+
+  //Submit these values to the backend
+
+  return {
+    errors: null,
+  };
+}
+
 export function NewOpinion() {
+  const [formState, formAction] = useActionState(newOpinionAction, {
+    errors: null,
+  });
+
   return (
     <div id="new-opinion">
       <h2>Share your opinion!</h2>
-      <form>
+      <form action={formAction}>
         <div className="control-row">
           <p className="control">
             <label htmlFor="userName">Your Name</label>
-            <input type="text" id="userName" name="userName" />
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              required
+              defaultValue={formState.enteredValues?.userName}
+            />
           </p>
 
           <p className="control">
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" name="title" />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              defaultValue={formState.enteredValues?.title}
+            />
           </p>
         </div>
         <p className="control">
           <label htmlFor="body">Your Opinion</label>
-          <textarea id="body" name="body" rows={5}></textarea>
+          <textarea
+            id="body"
+            name="body"
+            required
+            rows={5}
+            defaultValue={formState.enteredValues?.opinionText}
+          ></textarea>
         </p>
+
+        {formState.errors && (
+          <ul className="errors">
+            {formState.errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
 
         <p className="actions">
           <button type="submit">Submit</button>
