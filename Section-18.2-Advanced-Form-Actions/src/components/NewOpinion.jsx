@@ -1,38 +1,46 @@
+import { use } from "react";
 import { useActionState } from "react";
+import { OpinionsContext } from "../store/opinions-context";
 
-function newOpinionAction(prevState, formData) {
-  const userName = formData.get("userName"); //Correct
-  const title = formData.get("title"); //Correct
-  const opinionText = formData.get("body"); //Correct
+export function NewOpinion() {
+  const { addOpinion } = use(OpinionsContext);
 
-  let errors = []; //Correct
-  if (opinionText.length < 15) {
-    errors.push("Opinion must be at least 15 characters long");
-  }
+  async function newOpinionAction(prevState, formData) {
+    const userName = formData.get("userName"); //Correct
+    const title = formData.get("title"); //Correct
+    const body = formData.get("body"); //Correct
 
-  if (title.trim().length < 5) {
-    errors.push("Title must be at least 5 characters");
-  }
+    let errors = []; //Correct
+    if (body.length < 15) {
+      errors.push("Opinion must be at least 15 characters long");
+    }
 
-  if (errors.length > 0) {
+    if (title.trim().length < 5) {
+      errors.push("Title must be at least 5 characters");
+    }
+
+    if (errors.length > 0) {
+      return {
+        errors,
+        enteredValues: {
+          userName,
+          title,
+          body,
+        },
+      };
+    }
+
+    await addOpinion({
+      title,
+      body,
+      userName,
+    });
+
     return {
-      errors,
-      enteredValues: {
-        userName,
-        title,
-        opinionText,
-      },
+      errors: null,
     };
   }
 
-  //Submit these values to the backend
-
-  return {
-    errors: null,
-  };
-}
-
-export function NewOpinion() {
   const [formState, formAction] = useActionState(newOpinionAction, {
     errors: null,
   });
@@ -71,7 +79,7 @@ export function NewOpinion() {
             name="body"
             required
             rows={5}
-            defaultValue={formState.enteredValues?.opinionText}
+            defaultValue={formState.enteredValues?.body}
           ></textarea>
         </p>
 

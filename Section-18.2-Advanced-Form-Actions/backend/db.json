@@ -1,6 +1,13 @@
 {
   "opinions": [
     {
+      "id": 1736405704497,
+      "votes": 0,
+      "userName": "Patrick",
+      "title": "This course is amazing!",
+      "body": "This react course is super exciting and thrilling!!"
+    },
+    {
       "id": 1,
       "userName": "Maximilian Schwarzmüller",
       "title": "Do yourself a favor and learn React!",
