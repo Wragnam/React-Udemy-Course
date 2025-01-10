@@ -19,7 +19,7 @@ export default function Header({ title, logo, buttonText }) {
     0
   );
 
-  const cartQuantity = cartItems.length || 0;
+  const cartQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   function handleOpenCartClick() {
     cartModal.current.open();

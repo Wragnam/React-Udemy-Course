@@ -46,17 +46,14 @@ function cartReducer(state, action) {
 
     const existingCartItem = updatedItems[existingCartItemIdx];
 
-    if (existingCartItem) {
-      if (existingCartItem.quantity === 1) {
-        updatedItems.splice(existingCartItemIdx, 1);
-      } else {
-        const updatedItem = {
-          ...existingCartItem,
-          quantity: existingCartItem.quantity - 1,
-        };
-
-        updatedItems[existingCartItemIdx] = updatedItem;
-      }
+    if (existingCartItem.quantity === 1) {
+      updatedItems.splice(existingCartItemIdx, 1);
+    } else {
+      const updatedItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity - 1,
+      };
+      updatedItems[existingCartItemIdx] = updatedItem;
     }
 
     return {
