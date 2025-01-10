@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { useImperativeHandle } from "react";
 import { forwardRef } from "react";
+import Button from "./UI/Button";
 
 const Modal = forwardRef(function Modal(
   { title, checkOut, children, clickFn, fnName },
@@ -22,12 +23,8 @@ const Modal = forwardRef(function Modal(
       <h2>{title}</h2>
       {children}
       <form method="dialog" className="modal-actions">
-        <button className="text-button">Close</button>
-        {checkOut && (
-          <button className="button" onClick={clickFn}>
-            {fnName}
-          </button>
-        )}
+        <Button textOnly>Close</Button>
+        {checkOut && <Button onClick={clickFn}>{fnName}</Button>}
       </form>
     </dialog>,
     document.getElementById("modal")

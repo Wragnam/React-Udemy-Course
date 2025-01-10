@@ -10,6 +10,7 @@ import {
 import { addOrder } from "../http.js";
 import { CartContext } from "../store/cart-context.jsx";
 import { currencyFormatter } from "../util/formatting.js";
+import Button from "./UI/Button.jsx";
 
 const CheckoutModal = forwardRef(function CheckoutModal(
   { total, title, cart, handleSuccessfulCheckoutFn },
@@ -139,14 +140,14 @@ const CheckoutModal = forwardRef(function CheckoutModal(
           </ul>
         )}
         <div className="modal-actions">
-          <button
-            className="text-button"
+          <Button
+            textOnly
             onClick={() => dialog.current.close()}
             type="button"
           >
             Close
-          </button>
-          <button className="button">Submit Order</button>
+          </Button>
+          <Button>Submit Order</Button>
         </div>
       </form>
     </dialog>,

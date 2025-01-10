@@ -1,5 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
+import Button from "./UI/Button";
 
 const SuccessModal = forwardRef(function SuccessModal({ children }, ref) {
   const dialog = useRef();
@@ -17,7 +18,7 @@ const SuccessModal = forwardRef(function SuccessModal({ children }, ref) {
       <h2>Success!</h2>
       {children}
       <form method="dialog" className="modal-actions">
-        <button className="button">Okay</button>
+        <Button>Okay</Button>
       </form>
     </dialog>,
     document.getElementById("modal")

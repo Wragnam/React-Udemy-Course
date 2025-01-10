@@ -5,6 +5,7 @@ import Modal from "./CartModal";
 import Cart from "./Cart";
 import CheckoutModal from "./CheckoutModal";
 import SuccessModal from "./SucessModal";
+import Button from "./UI/Button";
 
 export default function Header({ title, logo, buttonText }) {
   const cartModal = useRef();
@@ -63,9 +64,9 @@ export default function Header({ title, logo, buttonText }) {
           <h1>{title}</h1>
         </div>
         <nav>
-          <button className="text-button" onClick={handleOpenCartClick}>
+          <Button textOnly onClick={handleOpenCartClick}>
             {buttonText} ({cartQuantity})
-          </button>
+          </Button>
         </nav>
       </header>
     </>

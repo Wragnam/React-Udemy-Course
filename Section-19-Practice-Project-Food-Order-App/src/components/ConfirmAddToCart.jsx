@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../store/cart-context";
+import Button from "./UI/Button";
 
 export default function ConfirmAddToCart({ meal }) {
   const [confirm, setConfirm] = useState(false);
@@ -9,18 +10,17 @@ export default function ConfirmAddToCart({ meal }) {
   return (
     <>
       {!confirm && (
-        <button
-          className="button"
-          onClick={() => {
+        <Button
+        onClick={() => {
             setConfirm(true);
           }}
         >
           Add to Cart
-        </button>
+        </Button>
       )}
       {confirm && (
-        <button
-          className="button-confirm"
+        <Button
+          className="confirm"
           onClick={() => {
             addToCart(meal);
             setConfirm(false);
@@ -28,7 +28,7 @@ export default function ConfirmAddToCart({ meal }) {
           onMouseLeave={() => setConfirm(false)}
         >
           Confirm Add to Cart
-        </button>
+        </Button>
       )}
     </>
   );
