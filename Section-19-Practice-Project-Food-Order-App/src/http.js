@@ -1,8 +1,13 @@
 export async function getMeals() {
   const resp = await fetch("http://localhost:3000/meals");
-  const data = await resp.json();
 
-  return data;
+  if (!resp.ok) {
+    //...
+  }
+
+  const meals = await resp.json();
+
+  return meals;
 }
 
 export async function addOrder(checkOutInformation) {
