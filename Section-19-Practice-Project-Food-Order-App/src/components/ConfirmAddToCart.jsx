@@ -25,6 +25,7 @@ export default function ConfirmAddToCart({ meal }) {
             addToCart(meal);
             setConfirm(false);
           }}
+          onMouseLeave={() => setConfirm(false)}
         >
           Confirm Add to Cart
         </button>
