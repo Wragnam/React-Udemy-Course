@@ -4,10 +4,12 @@ import { CartContext } from "../store/cart-context";
 import Modal from "./CartModal";
 import Cart from "./Cart";
 import CheckoutModal from "./CheckoutModal";
+import SuccessModal from "./SucessModal";
 
 export default function Header({ title, logo, buttonText }) {
   const cartModal = useRef();
   const checkoutModal = useRef();
+  const successfullModal = useRef();
 
   const { cartItems } = useContext(CartContext);
 
@@ -26,6 +28,10 @@ export default function Header({ title, logo, buttonText }) {
     checkoutModal.current.open();
   }
 
+  function handleOnSuccessfulCheckout() {
+    successfullModal.current.open();
+  }
+
   return (
     <>
       <Modal
@@ -42,7 +48,15 @@ export default function Header({ title, logo, buttonText }) {
         total={totalPrice}
         title="Checkout"
         cart={cartItems}
+        handleSuccessfulCheckoutFn={handleOnSuccessfulCheckout}
       ></CheckoutModal>
+      <SuccessModal ref={successfullModal}>
+        <p>Your order was submitted successfull.</p>
+        <p>
+          We will get back to you with more details via email within the next
+          few minutes
+        </p>
+      </SuccessModal>
       <section id="main-header">
         <div id="title">
           <img src={logo} alt="Food in plate" />

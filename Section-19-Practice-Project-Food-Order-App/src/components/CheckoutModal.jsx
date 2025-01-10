@@ -11,7 +11,7 @@ import { addOrder } from "../http.js";
 import { CartContext } from "../store/cart-context.jsx";
 
 const CheckoutModal = forwardRef(function CheckoutModal(
-  { total, title, cart },
+  { total, title, cart, handleSuccessfulCheckoutFn },
   ref
 ) {
   const dialog = useRef();
@@ -81,6 +81,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
 
     if (resp === null) {
       clearCart();
+      handleSuccessfulCheckoutFn();
       dialog.current.close();
     } else {
       return {
