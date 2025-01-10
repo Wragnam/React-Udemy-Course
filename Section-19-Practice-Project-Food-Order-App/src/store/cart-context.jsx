@@ -107,5 +107,5 @@ export function CartContextProvider({ children }) {
     clearCart: handleClearCart,
   };
 
-  return <CartContext.Provider value={ctx}>{children}</CartContext.Provider>;
+  return <CartContext value={ctx}>{children}</CartContext>;
 }
