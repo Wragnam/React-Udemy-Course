@@ -9,6 +9,7 @@ import {
 } from "../verification";
 import { addOrder } from "../http.js";
 import { CartContext } from "../store/cart-context.jsx";
+import { currencyFormatter } from "../util/formatting.js";
 
 const CheckoutModal = forwardRef(function CheckoutModal(
   { total, title, cart, handleSuccessfulCheckoutFn },
@@ -16,7 +17,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
 ) {
   const dialog = useRef();
 
-  const [formState, formAction, pending] = useActionState(checkOutAction, {
+  const [formState, formAction] = useActionState(checkOutAction, {
     errors: null,
   });
 
@@ -96,7 +97,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
   return createPortal(
     <dialog className="modal" id="modal" ref={dialog}>
       <h2>{title}</h2>
-      {total && <p>Total Amount: ${total.toFixed(2)}</p>}
+      {total && <p>Total Amount: {currencyFormatter.format(total)}</p>}
       <form action={formAction}>
         <Input
           label="Full Name"
@@ -138,7 +139,11 @@ const CheckoutModal = forwardRef(function CheckoutModal(
           </ul>
         )}
         <div className="modal-actions">
-          <button className="text-button" onClick={()=>dialog.current.close()}>
+          <button
+            className="text-button"
+            onClick={() => dialog.current.close()}
+            type="button"
+          >
             Close
           </button>
           <button className="button">Submit Order</button>

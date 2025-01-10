@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { CartContext } from "../store/cart-context";
+import { currencyFormatter } from "../util/formatting";
 
-export default function Cart({total}) {
+export default function Cart({ total }) {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
-  
 
   return (
     <section className="cart">
@@ -12,7 +12,8 @@ export default function Cart({total}) {
           {cartItems.map((item) => (
             <li key={item.id} className="cart-item">
               <p>
-                {item.name} - {item.quantity} x ${item.price}
+                {item.name} - {item.quantity} x{" "}
+                {currencyFormatter.format(item.price)}
               </p>
               <div className="cart-item-actions" id="cart-item-actions">
                 <button onClick={() => removeFromCart(item)}>-</button>
@@ -23,7 +24,7 @@ export default function Cart({total}) {
           ))}
         </ul>
       )}
-      <p className="cart-total">${total.toFixed(2)}</p>
+      <p className="cart-total">{currencyFormatter.format(total)}</p>
     </section>
   );
 }

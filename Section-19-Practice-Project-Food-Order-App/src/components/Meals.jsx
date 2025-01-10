@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getMeals } from "../http";
 import ConfirmAddToCart from "./ConfirmAddToCart";
+import { currencyFormatter } from "../util/formatting";
+
+
 
 export default function Meals() {
   const [meals, setMeals] = useState(null);
@@ -29,7 +32,7 @@ export default function Meals() {
               <article>
                 <img src={`http://localhost:3000/${meal.image}`} />
                 <h3>{meal.name}</h3>
-                <h1 className="meal-item-price">${meal.price}</h1>
+                <h1 className="meal-item-price">{currencyFormatter.format(meal.price)}</h1>
                 <p className="meal-item-description">{meal.description}</p>
                 <ConfirmAddToCart meal={meal} />
               </article>
