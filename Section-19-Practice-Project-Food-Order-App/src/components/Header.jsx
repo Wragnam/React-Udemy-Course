@@ -57,15 +57,17 @@ export default function Header({ title, logo, buttonText }) {
           few minutes
         </p>
       </SuccessModal>
-      <section id="main-header">
+      <header id="main-header">
         <div id="title">
           <img src={logo} alt="Food in plate" />
           <h1>{title}</h1>
         </div>
-        <button className="text-button" onClick={handleOpenCartClick}>
-          {buttonText} ({cartQuantity})
-        </button>
-      </section>
+        <nav>
+          <button className="text-button" onClick={handleOpenCartClick}>
+            {buttonText} ({cartQuantity})
+          </button>
+        </nav>
+      </header>
     </>
   );
 }

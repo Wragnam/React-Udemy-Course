@@ -96,7 +96,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
   return createPortal(
     <dialog className="modal" id="modal" ref={dialog}>
       <h2>{title}</h2>
-      {total && <p>Total Amount: ${total}</p>}
+      {total && <p>Total Amount: ${total.toFixed(2)}</p>}
       <form action={formAction}>
         <Input
           label="Full Name"
@@ -121,7 +121,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
             label="Postal Code"
             type="text"
             name="postalCode"
-            defaultValue={formState.enteredValues?.street}
+            defaultValue={formState.enteredValues?.postalCode}
           />
           <Input
             label="City"
@@ -138,7 +138,9 @@ const CheckoutModal = forwardRef(function CheckoutModal(
           </ul>
         )}
         <div className="modal-actions">
-          <button className="text-button">Close</button>
+          <button className="text-button" onClick={()=>dialog.current.close()}>
+            Close
+          </button>
           <button className="button">Submit Order</button>
         </div>
       </form>

@@ -7,5 +7,5 @@ export function containsNumeric(value) {
 }
 
 export function containsLetter(value) {
-  return Array.from(value).every((char) => /[A-Za-z]/.test(char));
+  return /[A-Za-z]/.test(value);
 }
