@@ -13,7 +13,7 @@ import { currencyFormatter } from "../util/formatting.js";
 import Button from "./UI/Button.jsx";
 
 const CheckoutModal = forwardRef(function CheckoutModal(
-  { total, title, handleSuccessfulCheckoutFn },
+  { total, title, handleSuccessfullCheckoutFn },
   ref
 ) {
   const dialog = useRef();
@@ -33,10 +33,10 @@ const CheckoutModal = forwardRef(function CheckoutModal(
   });
 
   async function checkOutAction(prevState, formData) {
-    const name = formData.get("fullName");
+    const name = formData.get("full-name");
     const email = formData.get("email");
     const street = formData.get("street");
-    const postalCode = formData.get("postalCode");
+    const postalCode = formData.get("postal-code");
     const city = formData.get("city");
 
     let errors = [];
@@ -83,7 +83,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
 
     if (resp === null) {
       clearCart();
-      handleSuccessfulCheckoutFn();
+      handleSuccessfullCheckoutFn();
       dialog.current.close();
     } else {
       return {
