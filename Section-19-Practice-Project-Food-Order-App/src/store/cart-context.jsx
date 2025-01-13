@@ -41,7 +41,7 @@ function cartReducer(state, action) {
     const updatedItems = [...state.cartItems];
 
     const existingCartItemIdx = updatedItems.findIndex(
-      (cartItem) => cartItem.id === action.payload.id
+      (cartItem) => cartItem.id === action.payload
     );
 
     const existingCartItem = updatedItems[existingCartItemIdx];
@@ -84,10 +84,10 @@ export function CartContextProvider({ children }) {
     });
   }
 
-  function handleRemoveFromCart(item) {
+  function handleRemoveFromCart(id) {
     shoppingCartDispatch({
       type: "REMOVE_ITEM",
-      payload: item,
+      payload: id,
     });
   }
 
