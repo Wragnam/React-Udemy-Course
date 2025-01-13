@@ -48,7 +48,6 @@ export default function Header({ title, logo, buttonText }) {
         ref={checkoutModal}
         total={totalPrice}
         title="Checkout"
-        cart={cartItems}
         handleSuccessfulCheckoutFn={handleOnSuccessfullCheckout}
       />
       <SuccessModal ref={successfullModal}>
