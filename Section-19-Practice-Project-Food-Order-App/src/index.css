@@ -244,6 +244,15 @@ h1 {
   color: #ffab04;
 }
 
+.error {
+  max-width: 40rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #f4c7c7;
+  color: #3e0505;
+  border-radius: 10px;
+}
+
 .errors {
   color: red;
   padding-left: 3%;
@@ -264,6 +273,10 @@ h1 {
 
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.55);
+}
+
+.center{
+  text-align: center;
 }
 
 @keyframes fade-slide-up {
