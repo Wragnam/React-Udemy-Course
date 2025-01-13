@@ -16,8 +16,8 @@ export default function Cart({ total }) {
                 {currencyFormatter.format(item.price)}
               </p>
               <div className="cart-item-actions" id="cart-item-actions">
-                <button onClick={() => removeFromCart(item)}>-</button>
-                <p>{item.quantity}</p>
+                <button onClick={() => removeFromCart(item.id)}>-</button>
+                <span>{item.quantity}</span>
                 <button onClick={() => addToCart(item)}>+</button>
               </div>
             </li>
