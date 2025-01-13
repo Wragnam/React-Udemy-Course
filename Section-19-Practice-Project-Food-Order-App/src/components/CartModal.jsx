@@ -11,9 +11,10 @@ const Modal = forwardRef(function Modal(
   const dialog = useRef();
 
   useImperativeHandle(ref, () => {
+    const modal = dialog.current;
     return {
       open: () => {
-        dialog.current.showModal();
+        modal.showModal();
       },
     };
   });

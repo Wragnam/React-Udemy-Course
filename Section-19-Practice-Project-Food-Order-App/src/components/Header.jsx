@@ -29,7 +29,7 @@ export default function Header({ title, logo, buttonText }) {
     checkoutModal.current.open();
   }
 
-  function handleOnSuccessfulCheckout() {
+  function handleOnSuccessfullCheckout() {
     successfullModal.current.open();
   }
 
@@ -49,8 +49,8 @@ export default function Header({ title, logo, buttonText }) {
         total={totalPrice}
         title="Checkout"
         cart={cartItems}
-        handleSuccessfulCheckoutFn={handleOnSuccessfulCheckout}
-      ></CheckoutModal>
+        handleSuccessfulCheckoutFn={handleOnSuccessfullCheckout}
+      />
       <SuccessModal ref={successfullModal}>
         <p>Your order was submitted successfull.</p>
         <p>
