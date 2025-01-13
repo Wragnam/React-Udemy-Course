@@ -18,7 +18,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
 ) {
   const dialog = useRef();
 
-  const [formState, formAction] = useActionState(checkOutAction, {
+  const [formState, formAction, isSending] = useActionState(checkOutAction, {
     errors: null,
   });
 
@@ -140,10 +140,19 @@ const CheckoutModal = forwardRef(function CheckoutModal(
           </ul>
         )}
         <div className="modal-actions">
-          <Button textOnly onClick={() => dialog.current.close()} type="button">
-            Close
-          </Button>
-          <Button>Submit Order</Button>
+          {!isSending && (
+            <>
+              <Button
+                textOnly
+                onClick={() => dialog.current.close()}
+                type="button"
+              >
+                Close
+              </Button>
+              <Button>Submit Order</Button>
+            </>
+          )}
+          {isSending && <p>Sending order, please wait!</p>}
         </div>
       </form>
     </dialog>,
