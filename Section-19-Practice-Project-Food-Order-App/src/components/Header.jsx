@@ -48,7 +48,7 @@ export default function Header({ title, logo, buttonText }) {
         ref={checkoutModal}
         total={totalPrice}
         title="Checkout"
-        handleSuccessfulCheckoutFn={handleOnSuccessfullCheckout}
+        handleSuccessfullCheckoutFn={handleOnSuccessfullCheckout}
       />
       <SuccessModal ref={successfullModal}>
         <p>Your order was submitted successfull.</p>
