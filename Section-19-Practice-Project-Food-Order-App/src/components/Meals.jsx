@@ -1,9 +1,9 @@
 import ConfirmAddToCart from "./ConfirmAddToCart";
 import { currencyFormatter } from "../util/formatting";
 import useHttp from "../hooks/useHttp";
+import Error from "./Error";
 
-const requestConfig = {}
-
+const requestConfig = {};
 
 export default function Meals() {
   const {
@@ -13,12 +13,15 @@ export default function Meals() {
   } = useHttp("http://localhost:3000/meals", requestConfig, []);
 
   if (isLoading) {
-    return <p>Loading Food Items...</p>;
+    return <p className="center">Loading Food Items...</p>;
+  }
+
+  if (error) {
+    return <Error title="Failed to fetch meals" message={error} />;
   }
 
   return (
     <section>
-      {error && <p>Error loading items: {error}</p>}
       {meals && (
         <ul id="meals">
           {meals.map((meal) => (
