@@ -13,7 +13,7 @@ import { currencyFormatter } from "../util/formatting.js";
 import Button from "./UI/Button.jsx";
 
 const CheckoutModal = forwardRef(function CheckoutModal(
-  { total, title, cart, handleSuccessfulCheckoutFn },
+  { total, title, handleSuccessfulCheckoutFn },
   ref
 ) {
   const dialog = useRef();
@@ -22,7 +22,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
     errors: null,
   });
 
-  const { clearCart } = useContext(CartContext);
+  const { cartItems, clearCart } = useContext(CartContext);
 
   useImperativeHandle(ref, () => {
     return {
@@ -70,7 +70,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
 
     const resp = await addOrder({
       order: {
-        items: cart,
+        items: cartItems,
         customer: {
           name,
           email,
@@ -103,7 +103,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
         <Input
           label="Full Name"
           type="text"
-          name="fullName"
+          name="full-name"
           defaultValue={formState.enteredValues?.name}
         />
         <Input
@@ -122,7 +122,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
           <Input
             label="Postal Code"
             type="text"
-            name="postalCode"
+            name="postal-code"
             defaultValue={formState.enteredValues?.postalCode}
           />
           <Input
@@ -140,11 +140,7 @@ const CheckoutModal = forwardRef(function CheckoutModal(
           </ul>
         )}
         <div className="modal-actions">
-          <Button
-            textOnly
-            onClick={() => dialog.current.close()}
-            type="button"
-          >
+          <Button textOnly onClick={() => dialog.current.close()} type="button">
             Close
           </Button>
           <Button>Submit Order</Button>
