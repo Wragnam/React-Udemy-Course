@@ -1,12 +1,15 @@
-import { Fragment } from 'react';
-import MainHeader from './MainHeader';
+import MainHeader from "./MainHeader";
+import { useSelector } from "react-redux";
+import Cart from "../Cart/Cart";
 
-const Layout = (props) => {
+const Layout = () => {
+  const isShowCart = useSelector((state) => state.cart.isShowCart);
+
   return (
-    <Fragment>
+    <>
       <MainHeader />
-      <main>{props.children}</main>
-    </Fragment>
+      <main>{isShowCart && <Cart />}</main>
+    </>
   );
 };
 
