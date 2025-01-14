@@ -6,20 +6,18 @@ const Auth = () => {
 
   const dispatch = useDispatch();
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
     dispatch(authActions.authenticate());
   };
 
 
-  function handleSubmit(event){
-    event.preventDefault();
-    handleLogin();
-  }
+ 
 
   return (
     <main className={classes.auth}>
       <section>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <div className={classes.control}>
             <label htmlFor="email">Email</label>
             <input type="email" id="email" />
