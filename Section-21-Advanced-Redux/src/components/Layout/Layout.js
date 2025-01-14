@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Cart from "../Cart/Cart";
 
 const Layout = () => {
-  const isShowCart = useSelector((state) => state.cart.isShowCart);
+  const isShowCart = useSelector((state) => state.ui.isShowCart);
 
   return (
     <>

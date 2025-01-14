@@ -1,13 +1,13 @@
 import { useDispatch } from "react-redux";
 import CartButton from "../Cart/CartButton";
 import classes from "./MainHeader.module.css";
-import {cartActions} from "../../store/cart";
+import { uiActions } from "../../store/ui.js";
 
 const MainHeader = (props) => {
   const dispatch = useDispatch();
 
   const handleCartButtonClick = () => {
-    dispatch(cartActions.toggleCart());
+    dispatch(uiActions.toggleCart());
   };
 
   return (
