@@ -24,7 +24,9 @@ const Layout = () => {
       return;
     }
 
-    dispatch(sendCartData(cart));
+    if (cart.changed) {
+      dispatch(sendCartData(cart));
+    }
   }, [dispatch, cart]);
 
   return (
