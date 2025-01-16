@@ -17,7 +17,8 @@ const EVENTS = [
 
 function EventsPage() {
   return (
-    <section>
+    <>
+    <h1>Events Page!</h1>
       <ul>
         {EVENTS.map((event) => (
           <li key={event.id}>
@@ -25,7 +26,7 @@ function EventsPage() {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   );
 }
 
