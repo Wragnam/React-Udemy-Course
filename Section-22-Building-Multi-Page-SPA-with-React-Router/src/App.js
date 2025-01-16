@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "home", element: <HomePage /> },
+      { index: true, element: <HomePage /> },
       { path: "products", element: <ProductsPage /> },
       { path: "products/:productId", element: <ProductDetailPage /> },
     ],

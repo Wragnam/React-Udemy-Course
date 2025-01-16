@@ -8,7 +8,7 @@ function MainNavigation() {
         <ul className={cssClasses.list}>
           <li>
             <NavLink
-              to="/home"
+              to="/"
               className={({ isActive }) => (isActive ? cssClasses.active : undefined)}
             >
               Home
