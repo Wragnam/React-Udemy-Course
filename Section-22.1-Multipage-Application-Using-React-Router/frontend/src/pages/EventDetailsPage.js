@@ -39,7 +39,5 @@ export async function action({ request, params }) {
     });
   }
 
-  console.log("/hi");
-
   return redirect("/events");
 }
