@@ -13,7 +13,7 @@ export default function EventDetails() {
   const id = params.id;
 
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ["eventInfo", { id: id }],
+    queryKey: ["events", { id: id }],
     queryFn: ({ signal }) => fetchEvent({ id, signal }),
   });
 
@@ -42,7 +42,11 @@ export default function EventDetails() {
           View all Events
         </Link>
       </Header>
-      {isPending && <LoadingIndicator />}
+      {isPending && (
+        <div id="event-details-content" className="center">
+          <p>Fetching event details ...</p>
+        </div>
+      )}
       {isError && (
         <ErrorBlock
           title="Failed to load event details"
