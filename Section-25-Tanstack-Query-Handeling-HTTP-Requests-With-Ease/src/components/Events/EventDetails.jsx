@@ -3,10 +3,13 @@ import { Link, Outlet, useParams, useNavigate } from "react-router-dom";
 import Header from "../Header.jsx";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchEvent, deleteEvent, queryClient } from "../../util/http.js";
-import LoadingIndicator from "../UI/LoadingIndicator.jsx";
 import ErrorBlock from "../UI/ErrorBlock.jsx";
+import { useState } from "react";
+import Modal from "../UI/Modal.jsx";
 
 export default function EventDetails() {
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const params = useParams();
   const navigate = useNavigate();
 
@@ -33,12 +36,50 @@ export default function EventDetails() {
     },
   });
 
+  function handleStartDelete() {
+    setIsDeleting(true);
+  }
+
+  function handleStopDelete() {
+    setIsDeleting(false);
+  }
+
   function handleDelete() {
     mutate({ id: id });
   }
 
   return (
     <>
+      {isDeleting && (
+        <Modal onClose={handleStopDelete}>
+          <h2>Are you sure</h2>
+          <p>
+            Do you really want to delete this event, this action cannot be
+            undone.
+          </p>
+          {isErrorDelete && (
+            <ErrorBlock
+              title="Failed to delete event"
+              message={
+                errorDelete.info?.message ||
+                "Failed to delete event, please try again later."
+              }
+            />
+          )}
+          {!isPendingDelete ? (
+            <div className="form-actions">
+              <button onClick={handleStopDelete} className="button-text">
+                Cancel
+              </button>
+              <button onClick={handleDelete} className="button">
+                Confirm
+              </button>
+            </div>
+          ) : (
+            <p>Deleting ...</p>
+          )}
+        </Modal>
+      )}
       <Outlet />
       <Header>
         <Link to="/events" className="nav-item">
@@ -65,22 +106,11 @@ export default function EventDetails() {
             <h1>{data.title}</h1>
             {!isPendingDelete && (
               <nav>
-                <button onClick={handleDelete}>Delete</button>
+                <button onClick={handleStartDelete}>Delete</button>
                 <Link to="edit">Edit</Link>
               </nav>
             )}
           </header>
-
-          {isPendingDelete && <LoadingIndicator />}
-          {isErrorDelete && (
-            <ErrorBlock
-              title="Failed to delete event"
-              message={
-                errorDelete.info?.message ||
-                "Failed to delete event, please try again later."
-              }
-            />
-          )}
           <div id="event-details-content">
             <img src={`http://localhost:3000/${data.image}`} alt={data.title} />
             <div id="event-details-info">
