@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
+import { revalidatePath } from "next/cache";
 
 function isInvalidText(text) {
   return !text || text.trim() === "";
@@ -19,7 +20,7 @@ export async function shareMeal(prevState, formData) {
 
   if (
     isInvalidText(meal.title) ||
-    isInvalidText(meal.description) ||
+    isInvalidText(meal.instructions) ||
     isInvalidText(meal.summary) ||
     isInvalidText(meal.creator) ||
     isInvalidText(meal.creator_email) ||
@@ -32,5 +33,6 @@ export async function shareMeal(prevState, formData) {
     };
   }
   await saveMeal(meal);
+  revalidatePath("/meals");
   redirect("/meals");
 }
