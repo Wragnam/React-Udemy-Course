@@ -1,3 +1,6 @@
+// Copyright 2013 Lovell Fuller and others.
+// SPDX-License-Identifier: Apache-2.0
+
 'use strict';
 
 /**
@@ -46,6 +49,37 @@ const bool = function (val) {
  */
 const buffer = function (val) {
   return val instanceof Buffer;
+};
+
+/**
+ * Is this value a typed array object?. E.g. Uint8Array or Uint8ClampedArray?
+ * @private
+ */
+const typedArray = function (val) {
+  if (defined(val)) {
+    switch (val.constructor) {
+      case Uint8Array:
+      case Uint8ClampedArray:
+      case Int8Array:
+      case Uint16Array:
+      case Int16Array:
+      case Uint32Array:
+      case Int32Array:
+      case Float32Array:
+      case Float64Array:
+        return true;
+    }
+  }
+
+  return false;
+};
+
+/**
+ * Is this value an ArrayBuffer object?
+ * @private
+ */
+const arrayBuffer = function (val) {
+  return val instanceof ArrayBuffer;
 };
 
 /**
@@ -103,17 +137,33 @@ const invalidParameterError = function (name, expected, actual) {
   );
 };
 
+/**
+ * Ensures an Error from C++ contains a JS stack.
+ *
+ * @param {Error} native - Error with message from C++.
+ * @param {Error} context - Error with stack from JS.
+ * @returns {Error} Error with message and stack.
+ * @private
+ */
+const nativeError = function (native, context) {
+  context.message = native.message;
+  return context;
+};
+
 module.exports = {
-  defined: defined,
-  object: object,
-  plainObject: plainObject,
-  fn: fn,
-  bool: bool,
-  buffer: buffer,
-  string: string,
-  number: number,
-  integer: integer,
-  inRange: inRange,
-  inArray: inArray,
-  invalidParameterError: invalidParameterError
+  defined,
+  object,
+  plainObject,
+  fn,
+  bool,
+  buffer,
+  typedArray,
+  arrayBuffer,
+  string,
+  number,
+  integer,
+  inRange,
+  inArray,
+  invalidParameterError,
+  nativeError
 };
