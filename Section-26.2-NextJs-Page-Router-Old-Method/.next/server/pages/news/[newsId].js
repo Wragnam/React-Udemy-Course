@@ -41,7 +41,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n// our-domain.com/news/something-important\n\nfunction DetailPage() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n        children: \"The Detail Page\"\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\PatrickClaassens\\\\OneDrive\\\\React Course\\\\React-Udemy-Course\\\\Section-26.2-NextJs-Page-Router-Old-Method\\\\pages\\\\news\\\\[newsId].js\",\n        lineNumber: 4,\n        columnNumber: 12\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailPage);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9uZXdzL1tuZXdzSWRdLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFBLDBDQUEwQzs7QUFFMUMsU0FBU0E7SUFDTCxxQkFBTyw4REFBQ0M7a0JBQUc7Ozs7OztBQUNiO0FBRUEsaUVBQWVELFVBQVVBLEVBQUMiLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcUGF0cmlja0NsYWFzc2Vuc1xcT25lRHJpdmVcXFJlYWN0IENvdXJzZVxcUmVhY3QtVWRlbXktQ291cnNlXFxTZWN0aW9uLTI2LjItTmV4dEpzLVBhZ2UtUm91dGVyLU9sZC1NZXRob2RcXHBhZ2VzXFxuZXdzXFxbbmV3c0lkXS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBvdXItZG9tYWluLmNvbS9uZXdzL3NvbWV0aGluZy1pbXBvcnRhbnRcclxuXHJcbmZ1bmN0aW9uIERldGFpbFBhZ2UoKSB7XHJcbiAgICByZXR1cm4gPGgxPlRoZSBEZXRhaWwgUGFnZTwvaDE+O1xyXG4gIH1cclxuICBcclxuICBleHBvcnQgZGVmYXVsdCBEZXRhaWxQYWdlO1xyXG4gICJdLCJuYW1lcyI6WyJEZXRhaWxQYWdlIiwiaDEiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/news/[newsId].js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ \"./node_modules/next/router.js\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);\n// our-domain.com/news/something-important\n\n\nfunction DetailPage() {\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_1__.useRouter)();\n    const newsId = router.query.newsId;\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n        children: \"The Detail Page\"\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\PatrickClaassens\\\\OneDrive\\\\React Course\\\\React-Udemy-Course\\\\Section-26.2-NextJs-Page-Router-Old-Method\\\\pages\\\\news\\\\[newsId].js\",\n        lineNumber: 10,\n        columnNumber: 10\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailPage);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9uZXdzL1tuZXdzSWRdLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUEsMENBQTBDOztBQUVGO0FBRXhDLFNBQVNDO0lBQ1AsTUFBTUMsU0FBU0Ysc0RBQVNBO0lBRXhCLE1BQU1HLFNBQVNELE9BQU9FLEtBQUssQ0FBQ0QsTUFBTTtJQUVsQyxxQkFBTyw4REFBQ0U7a0JBQUc7Ozs7OztBQUNiO0FBRUEsaUVBQWVKLFVBQVVBLEVBQUMiLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcUGF0cmlja0NsYWFzc2Vuc1xcT25lRHJpdmVcXFJlYWN0IENvdXJzZVxcUmVhY3QtVWRlbXktQ291cnNlXFxTZWN0aW9uLTI2LjItTmV4dEpzLVBhZ2UtUm91dGVyLU9sZC1NZXRob2RcXHBhZ2VzXFxuZXdzXFxbbmV3c0lkXS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBvdXItZG9tYWluLmNvbS9uZXdzL3NvbWV0aGluZy1pbXBvcnRhbnRcclxuXHJcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gXCJuZXh0L3JvdXRlclwiO1xyXG5cclxuZnVuY3Rpb24gRGV0YWlsUGFnZSgpIHtcclxuICBjb25zdCByb3V0ZXIgPSB1c2VSb3V0ZXIoKTtcclxuXHJcbiAgY29uc3QgbmV3c0lkID0gcm91dGVyLnF1ZXJ5Lm5ld3NJZDtcclxuXHJcbiAgcmV0dXJuIDxoMT5UaGUgRGV0YWlsIFBhZ2U8L2gxPjtcclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgRGV0YWlsUGFnZTtcclxuIl0sIm5hbWVzIjpbInVzZVJvdXRlciIsIkRldGFpbFBhZ2UiLCJyb3V0ZXIiLCJuZXdzSWQiLCJxdWVyeSIsImgxIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/news/[newsId].js\n");
 
 /***/ }),
 
@@ -77,6 +77,17 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ "react-dom":
+/*!****************************!*\
+  !*** external "react-dom" ***!
+  \****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-dom");
+
+/***/ }),
+
 /***/ "react/jsx-dev-runtime":
 /*!****************************************!*\
   !*** external "react/jsx-dev-runtime" ***!
@@ -99,6 +110,17 @@ module.exports = require("react/jsx-runtime");
 
 /***/ }),
 
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
 /***/ "path":
 /*!***********************!*\
   !*** external "path" ***!
@@ -107,6 +129,28 @@ module.exports = require("react/jsx-runtime");
 
 "use strict";
 module.exports = require("path");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
 
 /***/ })
 
