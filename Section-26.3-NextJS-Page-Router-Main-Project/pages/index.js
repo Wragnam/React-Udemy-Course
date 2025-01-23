@@ -25,6 +25,19 @@ export default function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
 }
 
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;
+
+//   // fetch data
+
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//   };
+// }
+
 export async function getStaticProps() {
   // fetch data from a database or an API
 
