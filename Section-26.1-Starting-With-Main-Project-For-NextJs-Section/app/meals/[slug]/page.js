@@ -5,9 +5,11 @@ import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
 export default async function MealPage({ params }) {
-  const meal = getMeal(params.slug);
+  const { slug } = await params;
 
-  if(!meal){
+  const meal = getMeal(slug);
+
+  if (!meal) {
     notFound();
   }
 
