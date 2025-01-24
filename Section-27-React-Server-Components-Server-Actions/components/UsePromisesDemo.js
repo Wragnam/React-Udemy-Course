@@ -1,15 +1,23 @@
-import fs from "node:fs/promises";
+"use client";
 
-export default async function UsePromiseDemo() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  const data = await fs.readFile("dummy-db.json", "utf-8");
-  const users = JSON.parse(data);
+import { use, useState } from "react";
+
+export default function UsePromiseDemo({ usersPromise }) {
+  const [count, setCount] = useState(0);
+
+  const users = use(usersPromise);
 
   return (
     <div className="rsc">
       <h2>RSC with Data Fetching</h2>
       <p>
         Uses <strong>async / await</strong> for data fetching.
+      </p>
+      <p>
+        <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+          Increment
+        </button>
+        <span>{count}</span> times clicked.
       </p>
       <ul>
         {users.map((user) => (
