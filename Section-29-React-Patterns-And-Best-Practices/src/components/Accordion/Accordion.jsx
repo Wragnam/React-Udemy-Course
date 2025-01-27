@@ -1,21 +1,23 @@
 import { createContext, useContext, useState } from "react";
-import AccordianItem from "./AccordionItem";
+import AccordionItem from "./AccordionItem";
+import AccordionTitle from "./AccordionTitle";
+import AccordionContent from "./AccordionContent";
 
-const AccordianContext = createContext();
+const AccordionContext = createContext();
 
-export function useAccordianContext() {
-  const ctx = useContext(AccordianContext);
+export function useAccordionContext() {
+  const ctx = useContext(AccordionContext);
 
   if (!ctx) {
     throw new Error(
-      "Accordian-related components should be wrapped by <Accordion>"
+      "Accordion-related components should be wrapped by <Accordion>"
     );
   }
 
   return ctx;
 }
 
-export default function Accordian({ children, className }) {
+export default function Accordion({ children, className }) {
   const [openItemId, setOpenItemId] = useState(null);
 
   function toggleItem(id) {
@@ -28,10 +30,12 @@ export default function Accordian({ children, className }) {
   };
 
   return (
-    <AccordianContext.Provider value={contextValue}>
+    <AccordionContext.Provider value={contextValue}>
       <ul className={className}>{children}</ul>
-    </AccordianContext.Provider>
+    </AccordionContext.Provider>
   );
 }
 
-Accordian.Item = AccordianItem;
+Accordion.Item = AccordionItem;
+Accordion.Title = AccordionTitle;
+Accordion.Content = AccordionContent;
