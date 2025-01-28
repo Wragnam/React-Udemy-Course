@@ -37,3 +37,8 @@ let people: {
 let course = "React - The Complete Guide";
 
 // course = 12; error
+
+//Union Types
+let courseUnion: string | number = "Union element";
+
+courseUnion = 10;
