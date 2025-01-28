@@ -39,3 +39,12 @@ let course = "React - The Complete Guide";
 let courseUnion: string | number = "Union element";
 
 courseUnion = 10;
+
+// Functions & types
+function add(a: number, b: number) {
+  return a + b;
+}
+
+function printOutput(value: any) {
+  console.log(value);
+}
