@@ -19,19 +19,16 @@ isInstructor = true;
 let hobbies: string[];
 hobbies = ["sports", "food"];
 
-let person: {
+type Person = {
   name: string;
   age: number;
 };
 
-person = { name: "Patrick", age: 22 };
+let person: Person = { name: "Patrick", age: 22 };
 
 // person = { isEmployee: true };
 
-let people: {
-  name: string;
-  age: number;
-}[];
+let people: Person[];
 
 // Type inference
 let course = "React - The Complete Guide";
