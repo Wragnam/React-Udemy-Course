@@ -28,3 +28,8 @@ let person: {
 person = { name: "Patrick", age: 22 };
 
 // person = { isEmployee: true };
+
+let people: {
+  name: string;
+  age: number;
+}[];
