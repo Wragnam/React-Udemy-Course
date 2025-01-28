@@ -16,7 +16,6 @@ let isInstructor: boolean;
 isInstructor = true;
 
 // More Complex Types
-
 let hobbies: string[];
 hobbies = ["sports", "food"];
 
@@ -33,3 +32,8 @@ let people: {
   name: string;
   age: number;
 }[];
+
+// Type inference
+let course = "React - The Complete Guide";
+
+// course = 12; error
