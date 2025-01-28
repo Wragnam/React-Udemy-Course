@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "name": "section-32-react-with-typescript",
+  "version": "1.0.0",
+  "main": "no-typescript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
