@@ -14,3 +14,17 @@ userName = "Patrick";
 let isInstructor: boolean;
 
 isInstructor = true;
+
+// More Complex Types
+
+let hobbies: string[];
+hobbies = ["sports", "food"];
+
+let person: {
+  name: string;
+  age: number;
+};
+
+person = { name: "Patrick", age: 22 };
+
+// person = { isEmployee: true };
