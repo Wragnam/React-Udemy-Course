@@ -2,7 +2,7 @@ import Todo from "../models/todo";
 import TodoItem from "./TodoItem";
 import classes from "./Todos.module.css";
 
-const Todos: React.FC<{ items: Todo[]; onRemove: (id: string) => void }> = (
+const Todos: React.FC<{ items: Todo[]; onRemoveTodo: (id: string) => void }> = (
   props
 ) => {
   return (
@@ -11,7 +11,7 @@ const Todos: React.FC<{ items: Todo[]; onRemove: (id: string) => void }> = (
         <TodoItem
           key={item.id}
           text={item.text}
-          onClick={() => props.onRemove(item.id)}
+          onClick={() => props.onRemoveTodo(item.id)}
         />
       ))}
     </ul>
