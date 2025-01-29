@@ -3,8 +3,8 @@ import Post from "./components/Post";
 function App() {
   return (
     <main>
-      <Post />
-      <Post />
+      <Post name="Piet" text="Text property!" />
+      <Post name="Patrick" text="Hi" />
     </main>
   );
 }
