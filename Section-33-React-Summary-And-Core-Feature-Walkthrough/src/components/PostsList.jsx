@@ -4,7 +4,7 @@ import Post from "./Post";
 import classes from "./PostsList.module.css";
 import Modal from "./Modal";
 
-export default function PostsList({modalIsVisible, hideModalHandler}) {
+export default function PostsList({ modalIsVisible, hideModalHandler }) {
   const [enteredBody, setEnteredBody] = useState("");
   const [authorName, setAuthorName] = useState("");
 
@@ -15,7 +15,6 @@ export default function PostsList({modalIsVisible, hideModalHandler}) {
     setAuthorName(event.target.value);
   }
 
-  
   return (
     <>
       {modalIsVisible && (
@@ -23,6 +22,7 @@ export default function PostsList({modalIsVisible, hideModalHandler}) {
           <NewPost
             onBodyChange={bodyChangeHandler}
             onAuthorChange={authorChangeHandler}
+            onCancel={hideModalHandler}
           />
         </Modal>
       )}
