@@ -1,46 +1,18 @@
-import { useState } from "react";
 import classes from "./NewPost.module.css";
 import Modal from "../components/Modal";
-import { Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 
-function NewPost({ onCancel, onCreatePost }) {
-  const [enteredBody, setEnteredBody] = useState("");
-  const [authorName, setAuthorName] = useState("");
-
-  function bodyChangeHandler(event) {
-    setEnteredBody(event.target.value);
-  }
-  function authorChangeHandler(event) {
-    setAuthorName(event.target.value);
-  }
-
-  function submitHandler(event) {
-    event.preventDefault();
-
-    const postData = {
-      body: enteredBody,
-      author: authorName,
-    };
-
-    onCreatePost(postData);
-    onCancel();
-  }
-
+function NewPost() {
   return (
     <Modal>
-      <form className={classes.form} onSubmit={submitHandler}>
+      <Form method="post" className={classes.form}>
         <p>
           <label htmlFor="body">Text</label>
-          <textarea id="body" required rows={3} onChange={bodyChangeHandler} />
+          <textarea id="body" name="body" required rows={3} />
         </p>
         <p>
           <label htmlFor="name">Your name</label>
-          <input
-            type="text"
-            id="name"
-            required
-            onChange={authorChangeHandler}
-          />
+          <input type="text" name="author" id="name" required />
         </p>
         <p className={classes.actions}>
           <Link to=".." type="button">
@@ -48,9 +20,24 @@ function NewPost({ onCancel, onCreatePost }) {
           </Link>
           <button>Submit</button>
         </p>
-      </form>
+      </Form>
     </Modal>
   );
 }
 
 export default NewPost;
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const postData = Object.fromEntries(formData);
+
+  await fetch("http://localhost:8080/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postData),
+  });
+
+  return redirect("/");
+}
