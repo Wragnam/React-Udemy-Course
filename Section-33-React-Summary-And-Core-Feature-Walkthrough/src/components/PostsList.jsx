@@ -4,8 +4,7 @@ import Post from "./Post";
 import classes from "./PostsList.module.css";
 import Modal from "./Modal";
 
-export default function PostsList() {
-  const [modalIsVisible, setModalIsVisible] = useState(true);
+export default function PostsList({modalIsVisible, hideModalHandler}) {
   const [enteredBody, setEnteredBody] = useState("");
   const [authorName, setAuthorName] = useState("");
 
@@ -16,10 +15,7 @@ export default function PostsList() {
     setAuthorName(event.target.value);
   }
 
-  function hideModalHandler() {
-    setModalIsVisible(false);
-  }
-
+  
   return (
     <>
       {modalIsVisible && (
