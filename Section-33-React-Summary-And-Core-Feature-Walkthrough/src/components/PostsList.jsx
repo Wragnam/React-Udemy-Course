@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
@@ -20,6 +20,17 @@ export default function PostsList({ modalIsVisible, hideModalHandler }) {
       ...prevData,
     ]);
   }
+
+  useEffect(() => {
+    async function getPosts() {
+      const resp = await fetch("http://localhost:8080/posts");
+      const data = await resp.json();
+
+      setPostData(data.posts);
+    }
+
+    getPosts();
+  }, []);
 
   return (
     <>
