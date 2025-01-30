@@ -21,6 +21,12 @@ export default function PostsList({ modalIsVisible, hideModalHandler }) {
           <NewPost onCancel={hideModalHandler} onCreatePost={addPostHandler} />
         </Modal>
       )}
+      {postData.length === 0 && (
+        <div style={{ textAlign: "center", color: "white" }}>
+          <h2>No Posts Yet</h2>
+          <p>Start adding some ....</p>
+        </div>
+      )}
       <ul className={classes.posts}>
         {postData.map((post) => (
           <Post key={post.id} text={post.body} name={post.author} />
