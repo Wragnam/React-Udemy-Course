@@ -1,10 +1,12 @@
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
-export default function NewExpense() {
+export default function NewExpense({saveExpenseDataHandler}) {
+  
+
   return (
     <div className="new-expense">
-      <ExpenseForm />
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
 }
