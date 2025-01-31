@@ -27,7 +27,13 @@ export default function ExpenseForm() {
   function submitHandler(event) {
     event.preventDefault();
 
-    console.log(userInput)
+    console.log(userInput);
+
+    setUserInput({
+      title: "",
+      amount: "",
+      date: "",
+    });
   }
 
   return (
@@ -37,6 +43,7 @@ export default function ExpenseForm() {
           <label>Title</label>
           <input
             type="text"
+            value={userInput.title}
             onChange={(event) => formChangeHandler(event, "TITLE")}
           />
         </div>
@@ -44,6 +51,7 @@ export default function ExpenseForm() {
           <label>Amount</label>
           <input
             type="number"
+            value={userInput.amount}
             min="0.01"
             step="0.01"
             onChange={(event) => formChangeHandler(event, "AMOUNT")}
@@ -53,6 +61,7 @@ export default function ExpenseForm() {
           <label>Date</label>
           <input
             type="date"
+            value={userInput.date}
             min="2023-01-01"
             max="2026-01-01"
             onChange={(event) => formChangeHandler(event, "DATE")}
