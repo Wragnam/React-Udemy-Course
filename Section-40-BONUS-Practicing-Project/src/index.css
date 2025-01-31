@@ -4,6 +4,8 @@
 
 html {
   font-family: sans-serif;
+  background-color: black;
+  justify-content: center;
 }
 
 body {
