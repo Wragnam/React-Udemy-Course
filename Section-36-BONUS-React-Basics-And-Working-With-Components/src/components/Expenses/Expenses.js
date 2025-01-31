@@ -17,9 +17,9 @@ export default function Expenses({ expenses }) {
         filteredYear={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      <ExpenseItem expense={expenses[0]} />
-      <ExpenseItem expense={expenses[1]} />
-      <ExpenseItem expense={expenses[2]} />
+      {expenses.map((expense) => (
+        <ExpenseItem key={expense.id} expense={expense} />
+      ))}
     </Card>
   );
 }
