@@ -1,4 +1,5 @@
 import ChartBar from "./ChartBar";
+import './Chart.css'
 
 export default function Chart({ dataPoints }) {
   return (
