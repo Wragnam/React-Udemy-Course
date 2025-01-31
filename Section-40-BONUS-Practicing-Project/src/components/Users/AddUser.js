@@ -1,6 +1,6 @@
 import classes from "./AddUser.module.css";
-import Card from "../Card/Card";
-import Button from "../Button/Button";
+import Card from "../UI/Card";
+import Button from "../UI/Button";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 
@@ -49,31 +49,25 @@ export default function AddUser({ onAddUser }) {
   return (
     <>
       {isOpen && <Modal onClose={handleCloseModal} />}
-      <Card>
+      <Card className={classes.input}>
         <form onSubmit={handleSubmit}>
-          <div className={classes.input}>
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              onChange={(event) =>
-                handleInputChange("NAME", event.target.value)
-              }
-              value={userInput.name}
-            />
-          </div>
-          <div className={classes.input}>
-            <label htmlFor="age">Age</label>
-            <input
-              type="number"
-              id="age"
-              min="0"
-              step="1"
-              value={userInput.age}
-              onChange={(event) => handleInputChange("AGE", event.target.value)}
-            />
-          </div>
-          <Button text="Add User" />
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            onChange={(event) => handleInputChange("NAME", event.target.value)}
+            value={userInput.name}
+          />
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            min="0"
+            step="1"
+            value={userInput.age}
+            onChange={(event) => handleInputChange("AGE", event.target.value)}
+          />
+          <Button>Add user</Button>
         </form>
       </Card>
     </>

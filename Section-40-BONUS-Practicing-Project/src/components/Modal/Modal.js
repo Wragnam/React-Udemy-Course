@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import Button from "../UI/Button";
 import classes from "./Modal.module.css";
 
 export default function Modal({ onClose }) {

@@ -1,4 +1,4 @@
-import Card from "../Card/Card";
+import Card from "../UI/Card";
 
 export default function User({ name, age }) {
   return (
