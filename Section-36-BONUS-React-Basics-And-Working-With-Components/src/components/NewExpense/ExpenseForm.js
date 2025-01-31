@@ -14,7 +14,7 @@ export default function ExpenseForm({ onSaveExpenseData }) {
     if (type === "TITLE") {
       changedData = { title: value };
     } else if (type === "AMOUNT") {
-      changedData = { amount: value };
+      changedData = { amount: +value };
     } else {
       changedData = { date: new Date(value) };
     }
