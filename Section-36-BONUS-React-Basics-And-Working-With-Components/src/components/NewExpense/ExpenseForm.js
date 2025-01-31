@@ -9,13 +9,14 @@ export default function ExpenseForm() {
   });
 
   function formChangeHandler(event, type) {
+    const value = event.target.value;
     let changedData = {};
     if (type === "TITLE") {
-      changedData = { title: event.target.value };
+      changedData = { title: value };
     } else if (type === "AMOUNT") {
-      changedData = { amount: event.target.value };
+      changedData = { amount: value };
     } else {
-      changedData = { date: event.target.value };
+      changedData = { date: value };
     }
 
     setUserInput((prevUserInput) => {
