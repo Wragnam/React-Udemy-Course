@@ -2,18 +2,25 @@ import { useState } from "react";
 import "./ExpenseForm.css";
 
 export default function ExpenseForm() {
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [userInput, setUserInput] = useState({
+    title: "",
+    amount: "",
+    date: "",
+  });
 
-  function titleChangeHandler(event) {
-    setTitle(event.target.value);
-  }
-  function amountChangeHandler(event) {
-    setAmount(event.target.value);
-  }
-  function dateChangeHandler(event) {
-    setDate(event.target.value);
+  function formChangeHandler(event, type) {
+    let changedData = {};
+    if (type === "TITLE") {
+      changedData = { title: event.target.value };
+    } else if (type === "AMOUNT") {
+      changedData = { amount: event.target.value };
+    } else {
+      changedData = { date: event.target.value };
+    }
+
+    setUserInput((prevUserInput) => {
+      return { ...prevUserInput, ...changedData };
+    });
   }
 
   return (
@@ -21,7 +28,10 @@ export default function ExpenseForm() {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            onChange={(event) => formChangeHandler(event, "TITLE")}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -29,7 +39,7 @@ export default function ExpenseForm() {
             type="number"
             min="0.01"
             step="0.01"
-            onChange={amountChangeHandler}
+            onChange={(event) => formChangeHandler(event, "AMOUNT")}
           />
         </div>
         <div className="new-expense__control">
@@ -38,7 +48,7 @@ export default function ExpenseForm() {
             type="date"
             min="2023-01-01"
             max="2026-01-01"
-            onChange={dateChangeHandler}
+            onChange={(event) => formChangeHandler(event, "DATE")}
           />
         </div>
       </div>
