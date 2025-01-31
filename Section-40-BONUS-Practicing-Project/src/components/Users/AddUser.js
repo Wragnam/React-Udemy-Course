@@ -2,7 +2,7 @@ import classes from "./AddUser.module.css";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import { useState } from "react";
-import Modal from "../Modal/Modal";
+import Modal from "../UI/Modal";
 
 export default function AddUser({ onAddUser }) {
   const [userInput, setUserInput] = useState({
@@ -10,7 +10,7 @@ export default function AddUser({ onAddUser }) {
     age: "",
   });
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState();
 
   function handleInputChange(type, value) {
     if (type === "NAME") {
@@ -25,30 +25,46 @@ export default function AddUser({ onAddUser }) {
   }
 
   function handleCloseModal() {
-    setIsOpen(false);
+    setError(undefined);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (userInput.name.trim() === "" || userInput.age.trim() === "") {
-      setIsOpen(true);
+    if (
+      userInput.name.trim().length === 0 ||
+      userInput.age.trim().length === 0
+    ) {
+      setError({
+        title: "Name or age is empty!",
+        message: "Please enter a valid name or age (non-empty values).",
+      });
       return;
     }
 
-    if (+userInput.age < 0) {
-      setIsOpen(true);
+    if (+userInput.age < 1) {
+      setError({
+        title: "Invalid age provided!",
+        message: "Age cannot be less than 1.",
+      });
       return;
     }
 
     const newId = Math.random();
 
     onAddUser({ ...userInput, id: newId });
+    setUserInput({ name: "", age: "" });
   }
 
   return (
     <>
-      {isOpen && <Modal onClose={handleCloseModal} />}
+      {error && (
+        <Modal
+          onClose={handleCloseModal}
+          title={error.title}
+          message={error.message}
+        />
+      )}
       <Card className={classes.input}>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
