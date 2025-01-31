@@ -11,13 +11,18 @@ export default function Expenses({ expenses }) {
     setFilteredYear(selectedYear);
   };
 
+  const filteredExpenses = expenses.filter(
+    (expense) => expense.date.getFullYear().toString() === filteredYear
+  );
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         filteredYear={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {expenses.map((expense) => (
+      {filteredExpenses.length === 0 && <p>No Expenses Found</p>}
+      {filteredExpenses.map((expense) => (
         <ExpenseItem key={expense.id} expense={expense} />
       ))}
     </Card>
