@@ -24,8 +24,14 @@ export default function ExpenseForm() {
     });
   }
 
+  function submitHandler(event) {
+    event.preventDefault();
+
+    console.log(userInput)
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
