@@ -16,7 +16,7 @@ export default function ExpenseForm({ onSaveExpenseData }) {
     } else if (type === "AMOUNT") {
       changedData = { amount: value };
     } else {
-      changedData = { date: value };
+      changedData = { date: new Date(value) };
     }
 
     setUserInput((prevUserInput) => {
@@ -61,7 +61,11 @@ export default function ExpenseForm({ onSaveExpenseData }) {
           <label>Date</label>
           <input
             type="date"
-            value={userInput.date}
+            value={
+              userInput.date !== ""
+                ? userInput.date.toISOString().split("T")[0]
+                : ""
+            }
             min="2023-01-01"
             max="2026-01-01"
             onChange={(event) => formChangeHandler(event, "DATE")}
